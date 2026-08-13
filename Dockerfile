@@ -28,6 +28,7 @@ COPY --from=build /app/src ./src
 COPY --from=build /app/node_modules ./node_modules
 COPY --from=build /app/package.json ./
 COPY --from=build /app/src/worker/wreq-worker.mjs ./dist/worker/wreq-worker.mjs
+ENV HOST=0.0.0.0
 
 # Non-root user for security
 RUN addgroup -g 1001 -S qwen && \
